@@ -1,7 +1,7 @@
 {
-  "name": "join-monster",
+  "name": "@assignar/type-monster",
   "version": "2.0.16-rc1",
-  "description": "A GraphQL to SQL query execution layer for batch data fetching.",
+  "description": "A GraphQL to SQL query execution layer for batch data fetching. To be rewritten in Typescript",
   "main": "dist/index.js",
   "engines": {
     "node": ">=6.0.0"
