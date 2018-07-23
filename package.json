@@ -1,6 +1,6 @@
 {
   "name": "join-monster",
-  "version": "2.0.16",
+  "version": "2.0.16-rc1",
   "description": "A GraphQL to SQL query execution layer for batch data fetching.",
   "main": "dist/index.js",
   "engines": {
@@ -47,7 +47,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stems/join-monster.git"
+    "url": "git+https://github.com/assignar/join-monster.git"
   },
   "keywords": [
     "graphql",
@@ -58,16 +58,8 @@
     "data",
     "schema"
   ],
-  "author": "Stem Disintermedia, Inc.",
-  "contributors": [
-    "Andrew Carlson <andrew@stem.is>",
-    "Matthew Elder <matt@stem.is>"
-  ],
+  "author": "Adam Hannigan",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/stems/join-monster/issues"
-  },
-  "homepage": "https://github.com/stems/join-monster#readme",
   "peerDependencies": {
     "graphql": "0.6 || 0.7 || 0.8 || 0.9 || 0.10 || 0.11 || 0.12"
   },
