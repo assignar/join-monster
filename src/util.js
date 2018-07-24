@@ -4,7 +4,7 @@ import { nest } from '@stem/nesthydrationjs'
 import stringifySQL from './stringifiers/dispatcher'
 import resolveUnions from './resolve-unions'
 import deprecate from 'deprecate'
-const debug = require('debug')('join-monster')
+const debug = require('debug')('@assignar/type-monster')
 
 import defineObjectShape from './define-object-shape'
 

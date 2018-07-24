@@ -9,9 +9,8 @@
   "files": [
     "dist/"
   ],
-  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && babel src --no-comments --out-dir dist --copy-files --ignore README.md",
+    "build": "rm -rf dist && babel src --no-comments --out-dir dist",
     "watch": "rm -rf dist && babel src --watch --source-maps true --out-dir dist",
     "test": "bin/test --no-oracle",
     "testsqlite3": "NODE_ENV=test ava test/*.js",
@@ -75,7 +74,7 @@
     "eslint": "^5.0.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "faker": "^4.1.0",
-    "graphql": "^0.13.0",
+    "graphql": "^0.13.2",
     "graphsiql": "0.2.0",
     "jsdoc-to-markdown": "^4.0.0",
     "kcors": "^2.2.1",
