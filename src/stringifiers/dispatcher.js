@@ -112,12 +112,26 @@ async function _stringifySqlAST(parent, node, prefix, context, selections, table
     }
     break
   case 'composite':
+    const isJunctionTable = parent.type === 'table' && parent.name === idx(parent, _ => _.junction.sqlTable)
     // If doing a batched junction, use the joining table name
-    if (parent.type === 'table' && parent.name === idx(parent, _ => _.junction.sqlTable)) {
+    if (isJunctionTable) {
       parentTable = parent.as
     }
+
+    // If table is joining on itself, generate the unique key as a combination from both tables
+    let compositeKey
+    const keys = node.name
+    const isSelfJoin = keys.length === 2 && keys[0] === keys[1]
+
+    if (isJunctionTable && isSelfJoin) {
+      // TODO - currently only supporting MYSQL Dialect
+      compositeKey = `CONCAT(${parentTable}.${keys[0]}, ${node.fromOtherTable}.${keys[1]})`
+    } else {
+      compositeKey = dialect.compositeKey(parentTable, node.name)
+    }
+
     selections.push(
-      `${dialect.compositeKey(parentTable, node.name)} AS ${q(joinPrefix(prefix) + node.as)}`
+      `${compositeKey} AS ${q(joinPrefix(prefix) + node.as)}`
     )
     break
   case 'expression':
